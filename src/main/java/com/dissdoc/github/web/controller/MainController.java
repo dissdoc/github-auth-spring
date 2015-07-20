@@ -13,6 +13,6 @@ public class MainController {
 
     @RequestMapping(value = "")
     public String printWelcome(ModelMap model) {
-        return "hello";
+        return "github";
     }
 }

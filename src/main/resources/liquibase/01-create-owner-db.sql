@@ -1,1 +1,0 @@
-create user 'tg'@'localhost' identified by '123';

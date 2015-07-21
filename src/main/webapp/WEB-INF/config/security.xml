@@ -7,5 +7,26 @@
                            http://www.springframework.org/schema/security
                            http://www.springframework.org/schema/security/spring-security.xsd">
 
+    <s:http entry-point-ref="restAuthentication" use-expressions="true">
+
+        <s:intercept-url pattern="/account/register/**" access="isAnonymous()"/>
+
+        <s:intercept-url pattern="/**" access="isAuthenticated()"/>
+
+        <s:logout/>
+
+    </s:http>
+
+    <s:authentication-manager erase-credentials="false">
+        <s:authentication-provider ref="authenticationProvider"/>
+    </s:authentication-manager>
+
+    <bean id="restAuthentication" class="com.dissdoc.github.security.RestAuthentication"/>
+
+    <bean id="userDetailsService" class="com.dissdoc.github.security.UserDetailsServiceImpl"/>
+
+    <bean id="authenticationProvider" class="com.dissdoc.github.security.AccountAuthenticationProvider">
+        <property name="userDetailsService" ref="userDetailsService"/>
+    </bean>
 
 </beans>

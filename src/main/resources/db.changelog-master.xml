@@ -5,9 +5,6 @@
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
                                        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
 
-    <include file="src/main/resources/liquibase/01-create-owner-db.sql"/>
-    <include file="src/main/resources/liquibase/02-create-grant-privileges.sql"/>
-    <include file="src/main/resources/liquibase/03-flush-privileges.sql"/>
-    <include file="src/main/resources/liquibase/04-create-account.sql"/>
+    <include file="src/main/resources/liquibase/01-create-account.sql"/>
 
 </databaseChangeLog>

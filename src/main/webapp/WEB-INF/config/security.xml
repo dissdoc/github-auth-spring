@@ -7,38 +7,5 @@
                            http://www.springframework.org/schema/security
                            http://www.springframework.org/schema/security/spring-security.xsd">
 
-    <s:http entry-point-ref="restAuthenticationEntryPoint" use-expressions="true">
-
-        <s:intercept-url pattern="/users/register/**" access="isAnonymous()"/>
-
-        <s:intercept-url pattern="/**" access="isAuthenticated()"/>
-
-        <s:logout />
-
-        <s:form-login authentication-success-handler-ref="authSuccessHandler"
-                      authentication-failure-handler-ref="authFailHandler"/>
-
-        <s:remember-me key="testSimpleSmoke" user-service-ref="userDetailsService" token-validity-seconds="345600" />
-
-    </s:http>
-
-    <s:global-method-security pre-post-annotations="enabled" secured-annotations="enabled"/>
-
-    <s:authentication-manager erase-credentials="false">
-        <s:authentication-provider ref="authenticationProvider"/>
-    </s:authentication-manager>
-
-    <!-- Beans definitions -->
-
-    <bean id="restAuthenticationEntryPoint" class="com.dissdoc.github.security.RestAuthenticationEntryPoint"/>
-
-    <bean id="userDetailsService" class="com.dissdoc.github.security.UserDetailsServiceImpl"/>
-
-    <bean id="authSuccessHandler" class="com.dissdoc.github.security.AuthenticationSuccessHandler"/>
-    <bean id="authFailHandler" class="com.dissdoc.github.security.AuthenticationFailureHandlerImpl" />
-
-    <bean id="authenticationProvider" class="com.dissdoc.github.security.UserAuthenticationProvider" >
-        <property name="userDetailsService" ref="userDetailsService" />
-    </bean>
 
 </beans>

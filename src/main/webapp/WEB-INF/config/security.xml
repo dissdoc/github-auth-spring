@@ -9,7 +9,7 @@
 
     <s:http entry-point-ref="restAuthentication" use-expressions="true">
 
-        <s:intercept-url pattern="/account/register/**" access="isAnonymous()"/>
+        <s:intercept-url pattern="/registration/**" access="isAnonymous()"/>
 
         <s:intercept-url pattern="/**" access="isAuthenticated()"/>
 

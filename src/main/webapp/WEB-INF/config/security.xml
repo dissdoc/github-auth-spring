@@ -17,6 +17,11 @@
 
         <s:logout/>
 
+        <s:form-login authentication-success-handler-ref="authSuccessHandler"
+                      authentication-failure-handler-ref="authFailHandler"/>
+
+        <s:remember-me key="TgGithub" user-service-ref="userDetailsService" token-validity-seconds="345600" />
+
     </s:http>
 
     <s:global-method-security pre-post-annotations="enabled" secured-annotations="enabled"/>
@@ -30,6 +35,9 @@
     <bean id="userDetailsService" class="com.dissdoc.github.security.UserDetailsServiceImpl"/>
 
     <bean id="registrationFilter" class="com.dissdoc.github.security.RegistrationFilter"/>
+
+    <bean id="authSuccessHandler" class="com.dissdoc.github.security.AuthenticationSuccessHandler"/>
+    <bean id="authFailHandler" class="com.dissdoc.github.security.AuthenticationFailureHandlerImpl" />
 
     <bean id="authenticationProvider" class="com.dissdoc.github.security.AccountAuthenticationProvider">
         <property name="userDetailsService" ref="userDetailsService"/>

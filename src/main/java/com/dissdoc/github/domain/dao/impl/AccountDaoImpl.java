@@ -38,7 +38,10 @@ public class AccountDaoImpl extends JdbcDao implements AccountDao {
 
     public static class AccountRowMapper implements RowMapper<Account> {
         public Account mapRow(ResultSet rs, int rownum) throws SQLException {
-            return new Account(rs.getString("username"), rs.getString("password"), rs.getString("firstName"),
+            return new Account(rs.getLong("id"),
+                    rs.getString("username"),
+                    rs.getString("password"),
+                    rs.getString("firstName"),
                     rs.getString("lastName"));
         }
     }

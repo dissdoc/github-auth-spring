@@ -5,6 +5,7 @@ package com.dissdoc.github.domain.model;
  */
 public class Account {
 
+    private Long id;
     private String username;
     private String password;
     private String firstName;
@@ -15,6 +16,18 @@ public class Account {
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
+    }
+
+    public Account(Long id, String username, String password, String firstName, String lastName) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
+    public Long getId() {
+        return id;
     }
 
     public String getUsername() {

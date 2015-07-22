@@ -8,4 +8,6 @@ import com.dissdoc.github.domain.model.Account;
 public interface AccountDao {
 
     Account findByUsername(String username);
+
+    void create(Account account);
 }

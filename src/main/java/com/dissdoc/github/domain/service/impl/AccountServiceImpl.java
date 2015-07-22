@@ -21,4 +21,8 @@ public class AccountServiceImpl implements AccountService {
     public Account findByUsername(String username) {
         return accountDao.findByUsername(username);
     }
+
+    public void create(Account account) {
+        accountDao.create(account);
+    }
 }
